@@ -6,5 +6,8 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./question.component.css']
 })
 export class QuestionComponent {
-  @Input() question_text: string = '';
+  @Input() questionText: string = 'Question Placeholder';
+  @Input() answer1: string = 'Ans1 Placeholder';
+  @Input() answer2: string = 'Ans2 Placeholder';
+  @Input() correctAnswer: number = 0;
 }

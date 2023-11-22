@@ -1,7 +1,7 @@
-<p>Punti: {{ points }}</p>
+<p class="points">Punti: {{ points }}</p>
 
-<app-question [question_text]="question"></app-question>
+<app-question [questionText]="question_text"></app-question>
 <section class="buttons-container">
-  <app-button (click)="onClick(1)" [label]="label1"></app-button>
-  <app-button (click)="onClick(2)" [label]="label2"></app-button>
+  <app-button (click)="onClick(1)" [label]="answer1"></app-button>
+  <app-button (click)="onClick(2)" [label]="answer2"></app-button>
 </section>
