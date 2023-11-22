@@ -2,4 +2,6 @@ h1{
   color: #9BA2FF;
   font-size: 32px;
   margin-bottom: 20px;
+  text-align: center;
+  width: 100vh;
 }

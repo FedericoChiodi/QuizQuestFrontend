@@ -57,9 +57,7 @@ export class QuizComponent implements OnInit {
 
   getRandomQuestion(): Observable<QuestionComponent> {
     this.random = Math.round((Math.random() * 99) + 1);
-    let apiUrl = 'http://localhost:8081/QuizQuest/questions/' + this.random;
-
-    apiUrl = 'http://localhost:8081/QuizQuest/questions/1';
+    const apiUrl = 'http://localhost:8081/QuizQuest/questions/' + this.random;
 
     return this.http.get<QuestionComponent>(apiUrl).pipe(
       catchError((error) => {
