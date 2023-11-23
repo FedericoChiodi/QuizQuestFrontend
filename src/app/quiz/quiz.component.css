@@ -1,4 +1,4 @@
-:host {
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,4 +16,12 @@
 .points{
   color: #9BA2FF;
   font-size: 22px;
+}
+img{
+  transform: scale(40%);
+  transition: transform 0.5s linear;
+}
+
+.animate-img{
+  transform: scale(100%);
 }

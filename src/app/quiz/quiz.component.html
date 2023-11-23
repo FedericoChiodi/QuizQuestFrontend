@@ -1,7 +1,14 @@
-<p class="points">Punti: {{ points }}</p>
+<main>
+  <section class="img-container">
+    <img ngSrc="/assets/x.png" height="100" width="100" alt="sbagliato" [class.animate-img]="shouldAnimateX">
+    <img ngSrc="/assets/v.png" height="100" width="100" alt="corretto" [class.animate-img]="shouldAnimateY">
+  </section>
 
-<app-question [questionText]="question_text"></app-question>
-<section class="buttons-container">
-  <app-button (click)="onClick(1)" [label]="answer1"></app-button>
-  <app-button (click)="onClick(2)" [label]="answer2"></app-button>
-</section>
+  <p class="points">Punti: {{ points }}</p>
+
+  <app-question [questionText]="question_text"></app-question>
+  <section class="buttons-container">
+    <app-button (click)="onClick(1)" [label]="answer1" [isDisabled]="animating"></app-button>
+    <app-button (click)="onClick(2)" [label]="answer2" [isDisabled]="animating"></app-button>
+  </section>
+</main>
