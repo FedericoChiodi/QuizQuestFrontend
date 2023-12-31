@@ -17,9 +17,6 @@ export class QuizComponent implements OnInit {
 
   points: number = 0;
   random: number = 1;
-  shouldAnimateX: boolean = false;
-  shouldAnimateY: boolean = false;
-  animating:boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -34,6 +31,8 @@ export class QuizComponent implements OnInit {
         this.answer1 = question.answer1;
         this.answer2 = question.answer2;
         this.correct_answer = question.correctAnswer;
+
+        console.log(this.question_text + " " + this.correct_answer);
       },
       error: (error) => {
         console.error('Error getting random question:', error);
@@ -43,22 +42,13 @@ export class QuizComponent implements OnInit {
 
   onClick(i: number) {
     if(this.checkAnswer(i)){
-      this.shouldAnimateY = true;
       this.calculatePoints(100);
     }
     else {
-      this.shouldAnimateX = true;
       this.calculatePoints(-50);
     }
-    this.animating = true;
 
-    setTimeout(() => {
-      this.shouldAnimateX = false;
-      this.shouldAnimateY = false;
-      this.animating = false;
-      this.newQuestion();
-    }, 750);
-
+    this.newQuestion();
   }
 
   checkAnswer(i: number) {
@@ -68,8 +58,6 @@ export class QuizComponent implements OnInit {
   getRandomQuestion(): Observable<QuestionComponent> {
     this.random = Math.round((Math.random() * 99) + 1);
     const apiUrl = 'http://localhost:8081/QuizQuest/questions/' + this.random;
-
-    console.log("Random: " + this.random);
 
     return this.http.get<QuestionComponent>(apiUrl).pipe(
       catchError((error) => {
@@ -82,7 +70,5 @@ export class QuizComponent implements OnInit {
   calculatePoints(n: number) {
     this.points = Math.max(this.points + n, 0);
   }
-
-
 
 }

@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { ButtonComponent } from './button/button.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './question/question.component';
-import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import {NgOptimizedImage} from "@angular/common";
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
-    NgOptimizedImage
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
